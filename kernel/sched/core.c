@@ -6542,7 +6542,9 @@ void sched_show_task(struct task_struct *p)
 	if (!try_get_task_stack(p))
 		return;
 
-	printk(KERN_INFO "%-15.15s %c", p->comm, task_state_to_char(p));
+	preempt_disable();
+	rq_unlock_irq(rq, &rf);
+	sched_preempt_enable_no_resched();
 
 	if (p->state == TASK_RUNNING)
 		printk(KERN_CONT "  running task    ");
