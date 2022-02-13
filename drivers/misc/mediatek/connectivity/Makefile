@@ -50,17 +50,17 @@ endif
 
         ifneq (,$(filter $(CONFIG_MTK_COMBO_CHIP), "CONSYS_6885" "CONSYS_6893"))
             export MTK_COMBO_CHIP=CONNAC2X2_SOC3_0
-            PATH_TO_WMT_DRV      = connectivity/conninfra
+            PATH_TO_WMT_DRV      = conninfra
         else ifneq (,$(filter $(CONFIG_MTK_COMBO_CHIP), "CONSYS_6779" "CONSYS_6873" "CONSYS_6853"))
             export MTK_COMBO_CHIP=CONNAC2X2
-            PATH_TO_WMT_DRV      = connectivity/common
+            PATH_TO_WMT_DRV      = common
         else
             export MTK_COMBO_CHIP=CONNAC
-            PATH_TO_WMT_DRV      = connectivity/common
+            PATH_TO_WMT_DRV      = common
         endif
 
-        PATH_TO_WLAN_CHR_DRV = connectivity/wlan/adaptor
-        PATH_TO_WLAN_DRV     = connectivity/wlan/core/gen4m
+        PATH_TO_WLAN_CHR_DRV = wlan/adaptor
+        PATH_TO_WLAN_DRV     = wlan/core/gen4m
 
         # for gen4m options
         export CONFIG_MTK_COMBO_WIFI_HIF=axi
