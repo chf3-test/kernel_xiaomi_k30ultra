@@ -22,7 +22,6 @@
 #include "mtk_gadget.h"
 #endif
 
-
 /**
  * usb_gadget_get_string - fill out a string descriptor 
  * @table: of c strings encoded using UTF-8
@@ -78,6 +77,7 @@ usb_gadget_get_string (struct usb_gadget_strings *table, int id, u8 *buf)
 	len = min((size_t)USB_MAX_STRING_LEN, strlen(s->s));
 	len = utf8s_to_utf16s(s->s, len, UTF16_LITTLE_ENDIAN,
 			(wchar_t *) &buf[2], USB_MAX_STRING_LEN);
+#endif
 	if (len < 0)
 		return -EINVAL;
 	buf [0] = (len + 1) * 2;
