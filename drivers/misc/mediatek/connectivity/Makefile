@@ -64,7 +64,10 @@ endif
     endif
 
 # Bluetooth
-obj-$(CONFIG_MTK_COMBO_BT) += bt/mt66xx/connac2/
+ifeq ($(CONFIG_MTK_COMBO_BT),y)
+    export _MTK_BT_CHIP=MTK_CONSYS_MT6885
+    obj-y += bt/mt66xx/connac2/
+endif
 
 # FMRadio
 ifeq ($(CONFIG_MTK_FMRADIO),y)
