@@ -71,6 +71,7 @@ endif
 
 # FMRadio
 ifeq ($(CONFIG_MTK_FMRADIO),y)
+    export CFG_BUILD_CONNAC2=true
     export CFG_FM_CHIP_ID=6885
     export CFG_FM_CHIP=mt6635
     obj-y += fmradio/
